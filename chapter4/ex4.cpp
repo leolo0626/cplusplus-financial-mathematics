@@ -8,7 +8,7 @@ double integralWithRectangleRule(double (*func)(double), double start, double en
 double functionToIntegrate(double x);
 
 int main() {
-    cout << "Integral with rectangle rule sin(x) " << integralWithRectangleRule(&functionToIntegrate, 0, 2, 100000000) << "\n";
+    cout << "Integral with rectangle rule sin(x) " << integralWithRectangleRule(&sin, 0, M_PI, 1000) << "\n";
     return 0; 
 }
 
@@ -25,5 +25,5 @@ double integralWithRectangleRule(double (*func)(double), double start, double en
         double params = start + i * h + 0.5 * h;
         sumValue += func(params);
     }
-    return sumValue/n;
+    return sumValue*h;
 }
