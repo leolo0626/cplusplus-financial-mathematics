@@ -7,5 +7,5 @@ class BlackScholesModel {
         double volatility;
         double riskFreeRate;
         BlackScholesModel();
-        BlackScholesModel(double stockPrice);
+        explicit BlackScholesModel(double stockPrice);
 };  
