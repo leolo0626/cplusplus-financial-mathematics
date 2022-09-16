@@ -41,12 +41,12 @@ static void writeLineChartData( ostream& out,
                                const vector<double>& yPoints ) {
     ASSERT( xPoints.size()==yPoints.size() );
     out<<"var data = google.visualization.arrayToDataTable([\n";
-    out<<"['x values','y values'],\n";
+    out<<"['x values','y values', 'y values 1'],\n";
     int n = xPoints.size();
     for (int i=0; i<n; i++) {
         double x = xPoints[i];
         double y = yPoints[i];
-        out << "[" << x <<", "<<y<<"]";
+        out << "[" << x <<", "<< y <<", "<<y<<"]";
         if (i!=n-1) {
             out<<",";
         }

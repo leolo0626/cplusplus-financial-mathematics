@@ -4,6 +4,7 @@
 #include "CallOption.h"
 #include "PutOption.h"
 #include "BlackScholesModel.h"
+#include "UpAndOutOption.h"
 
 
 class MonteCarloPricer {
@@ -18,6 +19,8 @@ public:
     /* Price a put option */
     double price( const PutOption& option, 
                   const BlackScholesModel& model);
+
+    double price ( const UpAndOutOption& option, const BlackScholesModel& model);
 };
 
 void testMonteCarloPricer();
