@@ -1,4 +1,5 @@
 #include "matlib.h"
+#include "testing.h"
 
 const double ROOT_2_PI = sqrt( 2.0 * PI );
 
@@ -133,6 +134,9 @@ static void testNormInv() {
 }
 
 void testMatlib() {
+    setDebugEnabled(false);
+    DEBUG_PRINT("I am right here");
     TEST( testNormInv );
     TEST( testNormCdf );
+    // setDebugEnabled(false);
 }

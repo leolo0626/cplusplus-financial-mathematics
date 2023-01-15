@@ -8,3 +8,6 @@ WHat if you don't mark horner Function as `static` ?
 3. Same as 1
 4. Yes , the horner function can be done with or without `static`. Since it is used in the matlib.cpp file only.
 
+```
+g++ main.cpp -o main -include ./matlib.cpp
+```
