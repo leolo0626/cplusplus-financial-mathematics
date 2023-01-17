@@ -1,12 +1,12 @@
 #pragma once
 #include "BlackScholesModel.h"
 
-class CallOption {
+class PutOption {
     public:
         double strike;
         double maturity;
-        CallOption();
-        CallOption(double strike, double maturity);
-        double payoff (double stockAtMaturity) const;
+        PutOption();
+        PutOption(double strike, double maturity);
+        double payoff (double stockAtMaturity);
         double price (BlackScholesModel &bsm);
 };

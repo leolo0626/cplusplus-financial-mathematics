@@ -1,25 +1,25 @@
-#include <iostream>
-#include "CallOption.h"
+#include "PutOption.h"
 #include <cmath>
 #include "FMLib8/FMLib/matlib.h"
 
-CallOption::CallOption():
+
+PutOption::PutOption(): 
     strike(0.0),
     maturity(0.0) {};
 
-CallOption::CallOption(double s, double m):
+PutOption::PutOption(double s, double m): 
     strike(s),
-    maturity(m){};
+    maturity(s) {};
 
-double CallOption::payoff(double stockAtMaturity) const {
+double PutOption::payoff(double stockAtMaturity) {
     if (stockAtMaturity > strike) {
-        return stockAtMaturity - strike; 
-    } else {
         return 0.0;
+    } else {
+        return strike - stockAtMaturity;
     }
-}
+};
 
-double CallOption::price(BlackScholesModel &bsm) {
+double PutOption::price(BlackScholesModel &bsm) {
     double S = bsm.stockPrice;
     double K = strike;
     double sigma = bsm.volatility;
@@ -30,5 +30,5 @@ double CallOption::price(BlackScholesModel &bsm) {
     double denominator = sigma * sqrt(T);
     double d1 = numerator / denominator;
     double d2 = d1 - denominator;
-    return S * normcdf(d1) - K * exp(-r*T) * normcdf(d2);
-}
+    return K * exp(-r*T) * normcdf(-d2) - S * normcdf(-d1);
+};
