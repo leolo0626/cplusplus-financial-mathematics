@@ -1,6 +1,5 @@
 #pragma once
-#include<iostream>
-#include<vector>
+#include "../FMLib9/FMLib/stdafx.h"
 
 class BlackScholesModel {
     public:
@@ -8,6 +7,7 @@ class BlackScholesModel {
         double volatility;
         double riskFreeRate;
         double date;
+        double drift;
         BlackScholesModel();
         std::vector<double> generatePricePath(
             double toDate,
@@ -27,3 +27,5 @@ class BlackScholesModel {
         ) const;
 
 };
+
+void testBlackScholesModel();

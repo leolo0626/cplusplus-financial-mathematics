@@ -1,7 +1,7 @@
 #pragma once
 
-#include "stdafx.h"
-#include "BlackScholesModel.h"
+#include "../FMLib9/FMLib/stdafx.h"
+#include "../model/BlackScholesModel.h"
 
 class CallOption {
 public:

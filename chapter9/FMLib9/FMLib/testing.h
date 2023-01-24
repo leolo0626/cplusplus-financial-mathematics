@@ -49,14 +49,14 @@ void setDebugEnabled( bool enabled );
 
 
 // our assertion macros behave differently in test mode
-#ifndef DEBUG_MODE
+// #ifndef DEBUG_MODE
 
-#define DEBUG_PRINT( A )
-#define ASSERT( c ) do {} while (0)
-#define ASSERT_APPROX_EQUAL( x, y, tolerance ) do {} while (0)
+// #define DEBUG_PRINT( A )
+// #define ASSERT( c ) do {} while (0)
+// #define ASSERT_APPROX_EQUAL( x, y, tolerance ) do {} while (0)
 
 
-#else
+// #else
 /*  Write A to std:cerr so long as debug is enabled */
 #define DEBUG_PRINT( A ) { \
     if (isDebugEnabled()) { \
@@ -87,7 +87,7 @@ void setDebugEnabled( bool enabled );
 } while (false)
 
 
-#endif
+// #endif
 
 
 
