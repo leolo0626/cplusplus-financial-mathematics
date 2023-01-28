@@ -9,27 +9,12 @@ MonteCarloPricer::MonteCarloPricer():
 
     }
 
-double MonteCarloPricer::price(const CallOption &option, const BlackScholesModel &model) {
-    double total = 0.0;
-    for (int i = 0; i < nScenarios; i ++) {
-        vector<double> path = model.generateRiskNeutralPricePath(
-            option.maturity, 1
-        );
-        double stockPrice = path.back();
-        double payoff = option.payoff(stockPrice);
-        total += payoff;
-    }
-    double mean  = total / nScenarios;
-    double r = model.riskFreeRate;
-    double T = option.maturity - model.date;
-    return exp(-r*T) * mean;
-}
 
-double MonteCarloPricer::price(const PutOption &option, const BlackScholesModel &model) {
+double MonteCarloPricer::price(const PathIndependentOption &option, const BlackScholesModel &model) {
     double total = 0.0;
     for (int i = 0; i < nScenarios; i ++) {
         vector<double> path = model.generateRiskNeutralPricePath(
-            option.maturity, 1
+            option.getMaturity(), 1
         );
         double stockPrice = path.back();
         double payoff = option.payoff(stockPrice);
@@ -37,7 +22,7 @@ double MonteCarloPricer::price(const PutOption &option, const BlackScholesModel 
     }
     double mean  = total / nScenarios;
     double r = model.riskFreeRate;
-    double T = option.maturity - model.date;
+    double T = option.getMaturity() - model.date;
     return exp(-r*T) * mean;
 }
 

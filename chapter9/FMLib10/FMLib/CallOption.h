@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../FMLib9/FMLib/stdafx.h"
-#include "../model/BlackScholesModel.h"
+#include "stdafx.h"
+#include "BlackScholesModel.h"
 #include "PathIndependentOption.h"
 
-class CallOption: public PathIndependentOption {
+class CallOption : public PathIndependentOption {
 public:
     CallOption();
     double strike;
@@ -12,7 +12,8 @@ public:
 
     double payoff( double stockAtMaturity ) const;
 
-    double price( const BlackScholesModel& bsm ) const;
+    double price( const BlackScholesModel& bsm )
+        const;
 
     double getMaturity() const;
 };

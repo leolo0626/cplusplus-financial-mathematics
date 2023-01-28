@@ -5,7 +5,8 @@
 
 PutOption::PutOption(): 
     strike(0.0),
-    maturity(0.0) {};
+    maturity(0.0) {
+};
 
 PutOption::PutOption(double s, double m): 
     strike(s),
@@ -32,3 +33,7 @@ double PutOption::price(BlackScholesModel &bsm) const {
     double d2 = d1 - denominator;
     return K * exp(-r*T) * normcdf(-d2) - S * normcdf(-d1);
 };
+
+double PutOption::getMaturity() const {
+    return maturity;
+}
