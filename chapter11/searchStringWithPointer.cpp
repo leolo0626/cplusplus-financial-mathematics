@@ -15,6 +15,7 @@ int searchStringWithPointer(char* phrase, char* text) {
     int count = 0;
     char *textPtr = text;
     while (*textPtr != 0 ){
+        // 0 means the end of the char 
         char *tempPtr = textPtr;
         count += isPhraseInsideSubString(phrase, tempPtr);
         textPtr++;
